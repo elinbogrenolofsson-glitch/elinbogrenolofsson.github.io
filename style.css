@@ -36,7 +36,7 @@ h1,h2{font-family:'Marcellus','PT Serif',Georgia,serif;font-weight:400;text-tran
 
 /* Startsida */
 .hero{position:relative;min-height:75vh;display:grid;place-items:center;text-align:center;padding:3rem 1.5rem;color:#fff;background:#222 url('IMG_9114.JPG') center/cover no-repeat}
-.hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.38)}
+.hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5)}
 .hero .inner{position:relative;max-width:46rem}
 .hero h1{font-size:clamp(2.6rem,9vw,5.5rem);letter-spacing:.04em;margin-bottom:1rem}
 .hero p{margin:0;font-size:clamp(1.05rem,2.4vw,1.4rem)}
