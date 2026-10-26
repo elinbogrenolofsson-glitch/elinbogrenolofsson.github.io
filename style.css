@@ -42,3 +42,10 @@ h1,h2{font-family:'manifold-extd-cf','PT Serif',Georgia,serif;font-weight:300;te
 .hero p{margin:0;font-size:clamp(1.05rem,2.4vw,1.4rem)}
 .home-top{position:absolute;inset:0 0 auto 0;z-index:2;color:#fff}
 .home-wrap{position:relative}
+
+/* Foto: ljust avsnitt med bilder i två kolumner */
+.series.light{background:var(--soft);color:var(--ink)}
+.series.light img{background:#ddd}
+.series .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,4vw,4rem);align-items:start;max-width:80rem;margin:0 auto}
+.series .col{display:flex;flex-direction:column;gap:clamp(1rem,4vw,4rem)}
+@media (max-width:640px){.series .cols{grid-template-columns:1fr}}
