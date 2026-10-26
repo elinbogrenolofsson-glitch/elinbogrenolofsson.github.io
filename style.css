@@ -1,35 +1,44 @@
-:root{
-  --bg:#f7f5f2; --ink:#1d1b19; --muted:#6b665f; --line:#d9d4cc; --hero-fallback:#3a3632;
-}
-@media (prefers-color-scheme: dark){
-  :root{ --bg:#161412; --ink:#f1ede7; --muted:#a39d94; --line:#34302b; --hero-fallback:#262320; }
-}
+:root{ --paper:#fff; --soft:#f5f5f5; --black:#000; --ink:#111; --white:#fff; }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:'PT Serif',Georgia,'Times New Roman',serif;line-height:1.65;font-size:18px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'PT Serif',Georgia,'Times New Roman',serif;line-height:1.6;font-size:18px}
 a{color:inherit}
 :focus-visible{outline:2px solid currentColor;outline-offset:3px}
+img{max-width:100%;display:block}
 
-.site-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem clamp(1rem,4vw,3rem);border-bottom:1px solid var(--line)}
-.site-header img{height:44px;width:auto;display:block}
-.site-header .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-weight:700}
-.site-header nav{display:flex;gap:1.5rem;flex-wrap:wrap}
-.site-header nav a{text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
-.site-header nav a:hover,.site-header nav a[aria-current="page"]{border-bottom-color:currentColor}
+h1,h2{font-family:'Marcellus','PT Serif',Georgia,serif;font-weight:400;text-transform:uppercase;line-height:1.05;margin:0}
 
-.hero{position:relative;min-height:70vh;display:grid;place-items:center;text-align:center;padding:3rem 1.5rem;color:#fff;background:var(--hero-fallback) url('IMG_9114.JPG') center/cover no-repeat}
+/* Header (logga + meny) */
+.topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:2.2rem clamp(1.25rem,4vw,4rem) 0}
+.topbar .logo img{width:clamp(72px,8vw,104px);height:auto}
+.topbar nav{display:flex;gap:clamp(1.25rem,3vw,2.5rem);padding-top:1.4rem;flex-wrap:wrap;justify-content:flex-end}
+.topbar nav a{text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+.topbar nav a:hover,.topbar nav a[aria-current="page"]{border-bottom-color:currentColor}
+
+.band{padding-bottom:clamp(2.5rem,8vw,6rem)}
+.band h1{font-size:clamp(2.4rem,7vw,4.6rem);padding:clamp(3rem,10vw,8rem) clamp(1.25rem,4vw,4rem) 0}
+.band.dark{background:var(--black);color:var(--white)}
+.band.soft{background:var(--soft);color:var(--ink)}
+
+/* Digital Konst: 3 kolumner med bildtexter */
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:clamp(3rem,9vw,7rem) clamp(1.25rem,4vw,4rem)}
+.works figure{margin:0}
+.works img{width:100%;aspect-ratio:297/210;object-fit:cover;background:#ddd}
+.works figcaption{margin-top:1rem;text-transform:uppercase}
+@media (max-width:900px){.works{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.works{grid-template-columns:1fr}}
+
+/* Foto: svart avsnitt med centrerad rubrik och två bilder */
+.series{background:var(--black);color:var(--white);padding:clamp(3rem,9vw,7rem) clamp(1.25rem,4vw,4rem)}
+.series h2{text-align:center;font-size:clamp(1.8rem,5vw,3.4rem);max-width:22ch;margin:0 auto clamp(2.5rem,7vw,5rem)}
+.series .pair{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1rem,4vw,4rem);max-width:80rem;margin:0 auto}
+.series img{width:100%;height:auto;background:#222}
+@media (max-width:640px){.series .pair{grid-template-columns:1fr}}
+
+/* Startsida */
+.hero{position:relative;min-height:75vh;display:grid;place-items:center;text-align:center;padding:3rem 1.5rem;color:#fff;background:#222 url('IMG_9114.JPG') center/cover no-repeat}
 .hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.38)}
 .hero .inner{position:relative;max-width:46rem}
-.hero h1{margin:0 0 1rem;font-size:clamp(2.6rem,9vw,5.5rem);letter-spacing:.04em;line-height:1.05}
+.hero h1{font-size:clamp(2.6rem,9vw,5.5rem);letter-spacing:.04em;margin-bottom:1rem}
 .hero p{margin:0;font-size:clamp(1.05rem,2.4vw,1.4rem)}
-
-main.page{max-width:68rem;margin:0 auto;padding:3rem clamp(1rem,4vw,3rem)}
-main.page h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 .5rem}
-main.page .lead{color:var(--muted);margin:0 0 2rem}
-
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
-.gallery figure{margin:0}
-.gallery img{width:100%;height:auto;display:block;background:var(--line)}
-.gallery figcaption{font-size:.9rem;color:var(--muted);margin-top:.4rem}
-
-.site-footer{padding:2rem clamp(1rem,4vw,3rem);border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.home-top{position:absolute;inset:0 0 auto 0;z-index:2;color:#fff}
+.home-wrap{position:relative}
