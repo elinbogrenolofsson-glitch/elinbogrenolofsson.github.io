@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arkiv BEO</title>
+<style>
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;color:#fff;overflow:hidden;
+  background:linear-gradient(180deg,#2b2a33 0%,#14131a 70%,#000 100%),#111}
+body::before{content:"";position:fixed;inset:0;background:url('IMG_9114.JPG') center/cover no-repeat;opacity:.55;z-index:-1}
+
+.menubar{position:fixed;top:0;left:0;right:0;height:30px;display:flex;align-items:center;gap:1.2rem;padding:0 14px;
+  background:rgba(20,20,24,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:13px;z-index:20}
+.menubar img{height:20px;width:20px;border-radius:4px;background:#fff}
+.menubar a{color:#fff;text-decoration:none}
+.menubar b{font-weight:700}
+.menubar .spacer{flex:1}
+
+.desktop{position:fixed;inset:30px 0 0 0}
+.icon{position:absolute;width:170px;background:none;border:0;color:#fff;font:inherit;text-align:center;cursor:grab;padding:6px;touch-action:none;user-select:none}
+.icon:active{cursor:grabbing}
+.icon img{width:100%;height:auto;display:block;border:5px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.45);pointer-events:none;background:#fff}
+.icon span{display:block;margin-top:.55rem;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.icon:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+.win{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(860px,92vw);max-height:88vh;display:flex;flex-direction:column;
+  background:#ece9e9;color:#222;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6);z-index:30;overflow:hidden}
+.win[hidden]{display:none}
+.titlebar{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:move;user-select:none;touch-action:none;border-bottom:1px solid #cfcaca;font-size:13px;font-weight:600}
+.dot{width:13px;height:13px;border-radius:50%;border:0;padding:0;background:#febc2e}
+.dot.close{background:#ff5f57;cursor:pointer}
+.dot.min{background:#febc2e}.dot.max{background:#28c840}
+.titlebar .t{flex:1;text-align:center;margin-right:50px}
+.win .body{padding:14px;overflow:auto}
+.win .body img{width:100%;height:auto;display:block;max-height:70vh;object-fit:contain;background:#ddd}
+.win .meta{padding-top:.6rem;font-size:14px;color:#444}
+
+@media (max-width:700px){
+  .desktop{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem .5rem;padding:1.2rem 1rem;align-content:start;overflow:auto;inset:30px 0 0 0}
+  .icon{position:static;width:100%;cursor:pointer;touch-action:auto}
+}
+@media (prefers-reduced-motion:no-preference){.win{animation:pop .14s ease-out}@keyframes pop{from{opacity:0;transform:translate(-50%,-48%)}}}
+</style>
+</head>
+<body>
+
+<div class="menubar">
+  <a href="index.html" aria-label="Till startsidan"><img src="beo_logga.png" alt=""></a>
+  <b>Arkiv BEO</b>
+  <a href="digital-konst.html">Digital Konst</a>
+  <a href="foto.html">Foto</a>
+  <span class="spacer"></span>
+  <span id="clock" aria-hidden="true"></span>
+</div>
+
+<main class="desktop" id="desktop">
+  <button class="icon" style="left:9%;top:12%" data-src="konst-elefant.jpg" data-title="Elefant – A3" data-alt="Digitalt konstverk av en elefant i gult och blågrönt"><img src="konst-elefant.jpg" alt=""><span>Elefant</span></button>
+  <button class="icon" style="left:36%;top:6%" data-src="konst-fotter.jpg" data-title="Fötter – A3" data-alt="Digitalt konstverk av fötter i rött och gult"><img src="konst-fotter.jpg" alt=""><span>Fötter</span></button>
+  <button class="icon" style="left:64%;top:16%" data-src="konst-ha-giang.jpg" data-title="Siluetter av Ha Giang – A3" data-alt="Siluetter av berg och träd i Ha Giang"><img src="konst-ha-giang.jpg" alt=""><span>Siluetter av Ha Giang</span></button>
+  <button class="icon" style="left:18%;top:52%" data-src="foto-vietnam-1.jpg" data-title="På vägarna i Vietnam, Ha Giang (1)" data-alt="Svartvitt foto av en suddig motorcykel framför ett hus och en milsten med texten Hà Giang"><img src="foto-vietnam-1.jpg" alt=""><span>Vietnam 1</span></button>
+  <button class="icon" style="left:50%;top:56%" data-src="foto-vietnam-2.jpg" data-title="På vägarna i Vietnam, Ha Giang (2)" data-alt="Svartvitt foto av en motorcykel på en väg med berg och träd i bakgrunden"><img src="foto-vietnam-2.jpg" alt=""><span>Vietnam 2</span></button>
+</main>
+
+<div class="win" id="win" role="dialog" aria-modal="false" aria-labelledby="wt" hidden>
+  <div class="titlebar" id="bar">
+    <button class="dot close" id="close" aria-label="Stäng fönstret"></button><span class="dot min"></span><span class="dot max"></span>
+    <span class="t" id="wt"></span>
+  </div>
+  <div class="body"><img id="wimg" src="" alt=""><div class="meta" id="wmeta"></div></div>
+</div>
+
+<script>
+(function(){
+  var win=document.getElementById('win'),wimg=document.getElementById('wimg'),wt=document.getElementById('wt'),wm=document.getElementById('wmeta');
+  function open(el){wimg.src=el.dataset.src;wimg.alt=el.dataset.alt||'';wt.textContent=el.dataset.title;wm.textContent=el.dataset.title;
+    win.style.left='50%';win.style.top='50%';win.hidden=false;document.getElementById('close').focus();}
+  function close(){win.hidden=true;}
+  document.getElementById('close').onclick=close;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+
+  // Dra ikoner (skrivbord) och öppna vid klick
+  var wide=function(){return window.innerWidth>700;};
+  document.querySelectorAll('.icon').forEach(function(ic){
+    var sx,sy,ox,oy,moved=false,down=false;
+    ic.addEventListener('pointerdown',function(e){if(!wide())return;down=true;moved=false;sx=e.clientX;sy=e.clientY;ox=ic.offsetLeft;oy=ic.offsetTop;ic.setPointerCapture(e.pointerId);});
+    ic.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>5)moved=true;if(moved){ic.style.left=ox+dx+'px';ic.style.top=oy+dy+'px';}});
+    ic.addEventListener('pointerup',function(){down=false;});
+    ic.addEventListener('click',function(){if(!moved)open(ic);moved=false;});
+  });
+
+  // Dra fönstret i titelraden
+  var bar=document.getElementById('bar'),wx,wy,wl,wtp,wd=false;
+  bar.addEventListener('pointerdown',function(e){if(e.target.id==='close')return;wd=true;wx=e.clientX;wy=e.clientY;var r=win.getBoundingClientRect();wl=r.left+r.width/2;wtp=r.top+r.height/2;bar.setPointerCapture(e.pointerId);});
+  bar.addEventListener('pointermove',function(e){if(!wd)return;win.style.left=wl+(e.clientX-wx)+'px';win.style.top=wtp+(e.clientY-wy)+'px';});
+  bar.addEventListener('pointerup',function(){wd=false;});
+
+  // Klocka
+  var clock=document.getElementById('clock');
+  function tick(){clock.textContent=new Date().toLocaleString('sv-SE',{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});}
+  tick();setInterval(tick,30000);
+})();
+</script>
+</body>
+</html>
