@@ -5,13 +5,13 @@ a{color:inherit}
 :focus-visible{outline:2px solid currentColor;outline-offset:3px}
 img{max-width:100%;display:block}
 
-h1,h2{font-family:'Marcellus','PT Serif',Georgia,serif;font-weight:400;text-transform:uppercase;line-height:1.05;margin:0}
+h1,h2{font-family:'manifold-extd-cf','PT Serif',Georgia,serif;font-weight:300;text-transform:uppercase;line-height:1.05;margin:0}
 
 /* Header (logga + meny) */
 .topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:2.2rem clamp(1.25rem,4vw,4rem) 0}
 .topbar .logo img{width:clamp(72px,8vw,104px);height:auto}
 .topbar nav{display:flex;gap:clamp(1.25rem,3vw,2.5rem);padding-top:1.4rem;flex-wrap:wrap;justify-content:flex-end}
-.topbar nav a{text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+.topbar nav a{font-family:'manifold-extd-cf','PT Serif',Georgia,serif;text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
 .topbar nav a:hover,.topbar nav a[aria-current="page"]{border-bottom-color:currentColor}
 
 .band{padding-bottom:clamp(2.5rem,8vw,6rem)}
@@ -23,7 +23,7 @@ h1,h2{font-family:'Marcellus','PT Serif',Georgia,serif;font-weight:400;text-tran
 .works{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:clamp(3rem,9vw,7rem) clamp(1.25rem,4vw,4rem)}
 .works figure{margin:0}
 .works img{width:100%;aspect-ratio:297/210;object-fit:cover;background:#ddd}
-.works figcaption{margin-top:1rem;text-transform:uppercase}
+.works figcaption{margin-top:1rem;text-transform:uppercase;font-family:'manifold-extd-cf','PT Serif',Georgia,serif}
 @media (max-width:900px){.works{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.works{grid-template-columns:1fr}}
 
