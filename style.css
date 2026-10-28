@@ -309,3 +309,10 @@ h1,h2{font-family:'manifold-extd-cf','PT Serif',Georgia,serif;font-weight:300;te
     transition: none;
   }
 }
+
+
+/* Enhetlig typografi på sidan Digital Konst */
+.page-art,
+.page-art * {
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+}
