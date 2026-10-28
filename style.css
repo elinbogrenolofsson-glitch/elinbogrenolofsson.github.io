@@ -165,7 +165,11 @@ h1,h2{font-family:'manifold-extd-cf','PT Serif',Georgia,serif;font-weight:300;te
 
 .page-art .work-image {
   overflow: hidden;
-  background: var(--soft);
+  background: transparent;
+}
+
+.page-art .works img {
+  background: transparent;
 }
 
 .page-art .work-image img {
@@ -190,7 +194,7 @@ h1,h2{font-family:'manifold-extd-cf','PT Serif',Georgia,serif;font-weight:300;te
   margin-top: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid #d8d2c8;
-  font-family: 'manifold-extd-cf', 'PT Serif', Georgia, serif;
+  font-family: inherit;
   font-size: 0.95rem;
   line-height: 1.5;
   text-transform: none;
