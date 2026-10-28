@@ -311,8 +311,11 @@ h1,h2{font-family:'manifold-extd-cf','PT Serif',Georgia,serif;font-weight:300;te
 }
 
 
-/* Enhetlig typografi på sidan Digital Konst */
-.page-art,
-.page-art * {
+/* Enhetlig brödtext – behåll den karaktäristiska rubrikfonten */
+.page-art {
   font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+}
+
+.page-art .art-heading h1 {
+  font-family: 'manifold-extd-cf', 'PT Serif', Georgia, serif;
 }
