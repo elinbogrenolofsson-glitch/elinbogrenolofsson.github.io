@@ -511,3 +511,107 @@ h1,h2{font-family:'manifold-extd-cf','PT Serif',Georgia,serif;font-weight:300;te
     margin-top: 0;
   }
 }
+
+
+/* DIGITAL KONST – samma formspråk som Foto */
+.page-art {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+}
+.page-art .art-page-header {
+  background: var(--soft);
+  color: var(--ink);
+  padding-bottom: clamp(2.5rem, 8vw, 6rem);
+}
+.page-art .art-page-header h1 {
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  padding: clamp(3rem, 10vw, 8rem) clamp(1.25rem, 4vw, 4rem) 0;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: 0;
+  max-width: none;
+}
+.page-art .art-page-header .topbar {
+  align-items: flex-start;
+  padding: 2.2rem clamp(1.25rem, 4vw, 4rem) 0;
+}
+.page-art .art-page-header .topbar nav a {
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.page-art .art-series {
+  background: var(--black);
+  color: var(--white);
+  padding: clamp(3rem, 9vw, 7rem) clamp(1.25rem, 4vw, 4rem);
+}
+.page-art .art-series h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 3.4rem);
+  max-width: 22ch;
+  margin: 0 auto clamp(2.5rem, 7vw, 5rem);
+}
+.page-art .art-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2.5rem);
+  max-width: 90rem;
+  margin: 0 auto;
+}
+.page-art .art-grid figure {
+  min-width: 0;
+  margin: 0;
+}
+.page-art .art-grid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: transparent;
+}
+.page-art .art-grid figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .75rem;
+  margin-top: .8rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  font-size: .9rem;
+  text-transform: none;
+}
+.page-art .art-grid figcaption span {
+  color: #bdbdbd;
+  font-family: 'manifold-extd-cf', Arial, sans-serif;
+  font-size: .7rem;
+  white-space: nowrap;
+}
+.page-art .art-page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem clamp(1.25rem, 4vw, 4rem);
+  background: var(--soft);
+  color: var(--ink);
+}
+.page-art .art-page-footer a {
+  font-family: 'manifold-extd-cf', Arial, sans-serif;
+  font-size: .85rem;
+  letter-spacing: .1em;
+  text-decoration: none;
+}
+.page-art .art-page-footer span {
+  font-family: 'manifold-extd-cf', Arial, sans-serif;
+  font-size: .65rem;
+  letter-spacing: .1em;
+}
+@media (max-width: 900px) {
+  .page-art .art-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .page-art .art-grid { grid-template-columns: 1fr; }
+  .page-art .art-page-footer { flex-direction: column; }
+}
