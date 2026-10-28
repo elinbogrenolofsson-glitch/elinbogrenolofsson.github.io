@@ -3,33 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arkiv BEO</title>
-<meta name="description" content="Alla mina passionprojects på ett och samma ställe.">
+<title>Arkiv BEO — Bilder, idéer och intryck</title>
+<meta name="description" content="Arkiv BEO är ett personligt arkiv för fotografi, digital konst och kreativa projekt.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://use.typekit.net/fqo0fdd.css">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="home-wrap">
-<div class="home-top">
-  <header class="topbar">
-    <a class="logo" href="index.html"><img src="beo_logga.png" alt="Arkiv BEO, startsida"></a>
-    <nav aria-label="Huvudmeny">
-      <a href="digital-konst.html">Digital Konst</a>
-      <a href="foto.html">Foto</a>
-    </nav>
-  </header>
-</div>
-  <main>
-    <section class="hero">
-      <div class="inner">
-        <h1>Arkiv BEO</h1>
-        <p>Alla mina passionprojects på ett och samma ställe, hurra!!</p>
-      </div>
-    </section>
-  </main>
-</div>
+<body class="home-editorial">
+<header class="home-header">
+  <a class="logo" href="index.html" aria-label="Arkiv BEO, startsida"><img src="beo_logga.png" alt="Arkiv BEO"></a>
+  <nav aria-label="Huvudmeny">
+    <a href="digital-konst.html">Digital Konst <span>↗</span></a>
+    <a href="foto.html">Foto <span>↗</span></a>
+  </nav>
+</header>
+<main>
+  <section class="home-editorial-hero" aria-labelledby="home-title">
+    <div class="hero-meta"><span>PERSONLIGT ARKIV</span><span>FOTO · DIGITAL KONST · ANNAT</span></div>
+    <div class="hero-copy">
+      <p class="home-kicker">En samling av sådant jag fastnar för.</p>
+      <h1 id="home-title">Arkiv<br><em>BEO.</em></h1>
+      <p class="home-intro">Bilder, idéer och små projekt samlade på ett ställe. Ett arkiv som får växa och förändras med tiden.</p>
+      <a class="home-discover" href="#utforska">Utforska arkivet <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-image-credit"><span>UTVALT ÖGONBLICK</span><span>01 / ARKIV BEO</span></div>
+  </section>
+  <section class="home-explore" id="utforska" aria-labelledby="explore-title">
+    <div class="explore-heading">
+      <p class="home-kicker">GÅ VIDARE</p>
+      <h2 id="explore-title">Utforska<br>arkivet<span>.</span></h2>
+      <p>Två ingångar till det jag samlar, skapar och upptäcker.</p>
+    </div>
+    <a class="explore-card explore-art" href="digital-konst.html">
+      <div class="explore-card-top"><span>01 / SKAPA</span><span aria-hidden="true">↗</span></div>
+      <div class="explore-card-title"><h3>Digital<br>Konst</h3><span>Se konstverken</span></div>
+    </a>
+    <a class="explore-card explore-photo" href="foto.html">
+      <div class="explore-card-top"><span>02 / SE</span><span aria-hidden="true">↗</span></div>
+      <div class="explore-card-title"><h3>Foto</h3><span>Se fotografierna</span></div>
+    </a>
+  </section>
+</main>
+<footer class="home-editorial-footer">
+  <a href="index.html">ARKIV BEO</a>
+  <span>ETT LEVANDE ARKIV AV IDÉER OCH INTRYCK</span>
+  <a href="#home-title">TILL TOPPEN ↑</a>
+</footer>
 </body>
 </html>
